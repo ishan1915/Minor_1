@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SHOPPING PAGE</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <a href="#"><img src="C:\Users\SINGH ISHAN\Music\project\logo.png" class="logo" alt="" width="100" height="100"></a>
+<!--Checking  the file-->
+            <div>
+                <ul id="navbar">
+                    <li> <a href="index.html">Home</a></li>
+                    <li> <a class="active" href="shopping.html">shop</a></li>
+                    <li> <a href="">Blog</a></li>
+                    <li> <a href="">About</a></li>
+                    <li> <a href="">Contact</a></li>
+                    <li> <a href="cart.html"> <i class="far fa-shopping-bag"></i></a></li>
+                    
+
+                </ul>
+            </div>
+        </section>
+
+        <h1>E-commerce Products</h1>
+    
+        <!-- Sorting Options -->
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+        </select>
+    
+        <!-- Product Display Container -->
+        <div id="productContainer">
+            <!-- Sample Product Listings -->
+            <div class="product" data-name="Product A" data-price="25.99" data-rating="4.5">
+               <img src="img\shopping\image2.jpg" width="200"  length="100">
+                <h4>Product A</h4>
+                <p>Price: $25.99</p>
+                <p>Rating: 4.5 stars</p>
+            </div>
+            <div class="product" data-name="Product B" data-price="19.99" data-rating="3.8">
+                <h4>Product B</h4>
+                <p>Price: $19.99</p>
+                <p>Rating: 3.8 stars</p>
+            </div>
+            <div class="product" data-name="Product C" data-price="34.99" data-rating="4.2">
+                <h4>Product C</h4>
+                <p>Price: $34.99</p>
+                <p>Rating: 4.2 stars</p>
+            </div>
+           <div class="product" data-name="Product A" data-price="25.99" data-rating="4.5">
+                <h4>Product A</h4>
+                <p>Price: $25.99</p>
+                <p>Rating: 4.5 stars</p>
+            </div>
+            <div class="product" data-name="Product B" data-price="19.99" data-rating="3.8">
+                <h4>Product B</h4>
+                <p>Price: $19.99</p>
+                <p>Rating: 3.8 stars</p>
+            </div>
+            <div class="product" data-name="Product C" data-price="34.99" data-rating="4.2">
+                <h4>Product C</h4>
+                <p>Price: $34.99</p>
+                <p>Rating: 4.2 stars</p>
+            </div>
+        </div>
+    
+        <script>
+            // JavaScript for sorting products
+            const sortSelect = document.getElementById('sortSelect');
+            const productContainer = document.getElementById('productContainer');
+            const products = Array.from(productContainer.getElementsByClassName('product'));
+    
+            sortSelect.addEventListener('change', function () {
+                const sortBy = this.value;
+    
+                products.sort((a, b) => {
+                    const aValue = parseFloat(a.getAttribute(`data-${sortBy}`));
+                    const bValue = parseFloat(b.getAttribute(`data-${sortBy}`));
+    
+                    return aValue - bValue;
+                });
+    
+                // Clear and re-add sorted products to the container
+                productContainer.innerHTML = '';
+                products.forEach(product => {
+                    productContainer.appendChild(product);
+                });
+            });
+        </script>

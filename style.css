@@ -105,8 +105,9 @@ body {
 
 
 /* home page*/
+
 #hero{
-  background-image: url(book.jpg);
+ /* background-image: url(book.jpg);*/
   height: 90vh;
   width: 100%;
   background-size: cover;
@@ -174,3 +175,24 @@ body {
   background-color: rgb(228, 240, 119);
 }
 /*47*/
+
+
+
+
+/*product page css starts here*/
+  /* Add your CSS styles for product display here */
+  .product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+   background-color:azure;
+}
+#productContainer{
+
+display: flex;
+
+/*justify-content: space-between;*/
+flex-wrap: wrap;
+margin:10px;
+
+}
