@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOPPING PAGE</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
     <title>Product Details</title>
     <style>
         body {
@@ -54,11 +58,48 @@
     </style>
 </head>
 <body>
+    <section id="header">
+        <a href="#"><img src="C:\Users\SINGH ISHAN\Music\project\logo.png" class="logo" alt="" width="100" height="100"></a>
+<!--Checking  the file-->
+        <div>
+            <ul id="navbar">
+                <li> <a href="index.html">Home</a></li>
+                <li> <a class="active" href="shopping.html">shop</a></li>
+                <li> <a href="">Blog</a></li>
+                <li> <a href="">About</a></li>
+                <li> <a href="">Contact</a></li>
+                <li> <a href="cart.html"> <i class="far fa-shopping-bag"></i></a></li>
+                
+
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        let enlargedImage = null;
+
+        function showImage(imageSrc) {
+            if (enlargedImage) {
+                document.body.removeChild(enlargedImage);
+            }
+
+            enlargedImage = document.createElement("img");
+            enlargedImage.src = imageSrc;
+            enlargedImage.style.maxWidth = "50%";
+            enlargedImage.style.cursor = "pointer";
+            enlargedImage.onclick = function() {
+                document.body.removeChild(this);
+                enlargedImage = null;
+            };
+            
+            document.body.appendChild(enlargedImage);
+        }
+    </script>
     <div class="container">
         <div class="product-images">
-            <img src="img/image2.jpg" alt="Product Image 1" width="100" onclick="showImage('image1.jpg')">
-            <img src="img/image2.jpg" alt="Product Image 2" width="100" onclick="showImage('image2.jpg')">
-            <img src="minor_1/img/image3.jpg" alt="Product Image 3" width="100" onclick="showImage('image3.jpg')">
+            <img src="img/image1.jpg" alt="Product Image 1" width="100" onclick="showImage('img/image1.jpg')">
+            <img src="img/image2.jpg" alt="Product Image 2" width="100" onclick="showImage('img/image2.jpg')">
+            <img src="img/image3.jpg" alt="Product Image 3" width="100" onclick="showImage('img/image3.jpg')">
         </div>
         <div class="product-info">
             <h1>Product Name</h1>

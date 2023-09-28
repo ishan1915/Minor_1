@@ -10,6 +10,9 @@ html {
   scroll-behavior: smooth;
 }
 
+body{
+/*background-color: #96b2bd;*/
+}
 /* Global Styles */
 
 h1 {
@@ -183,6 +186,37 @@ body {
   margin-bottom: 0px;
   color:crimson
 }
+
+.footrow{
+  display:flex;
+  flex-wrap:wrap;
+  }
+.foot1{
+    padding-left:40px;
+    }
+
+  .footer{
+   background-color:black;
+   margin-top: 10px;
+   padding-bottom: 20px;
+   padding-top: 20px;
+   color: white;
+
+  }
+
+  .foot2 {
+    padding-left: 200px;
+   /* display:flex;*/
+  }
+
+   .social-media-icons li {
+    display: inline-block;
+    padding: 10px;
+   }
+  .foot3{
+    padding-left: 200px;
+    
+  }
 /*47*/
 
 
