@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+           
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .product-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-images img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .product-info {
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .owner-details {
+            margin-top: 20px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-images">
+            <img src="img/image2.jpg" alt="Product Image 1" width="100" onclick="showImage('image1.jpg')">
+            <img src="img/image2.jpg" alt="Product Image 2" width="100" onclick="showImage('image2.jpg')">
+            <img src="minor_1/img/image3.jpg" alt="Product Image 3" width="100" onclick="showImage('image3.jpg')">
+        </div>
+        <div class="product-info">
+            <h1>Product Name</h1>
+            <p>Price: $99.99</p>
+        </div>
+        <div class="owner-details">
+            <h2>Owner Details</h2>
+            <p>Name: John Doe</p>
+            <p>Email: johndoe@example.com</p>
+            <p>Address: 123 Main St, City</p>
+        </div>
+        <div class="contact-info">
+            <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+            <a href="mailto:johndoe@example.com">Email</a>
+        </div>
+    </div>
+
+    <script>
+        let enlargedImage = null;
+
+        function showImage(imageSrc) {
+            if (enlargedImage) {
+                document.body.removeChild(enlargedImage);
+            }
+
+            enlargedImage = document.createElement("img");
+            enlargedImage.src = imageSrc;
+            enlargedImage.style.maxWidth = "50%";
+            enlargedImage.style.cursor = "pointer";
+            enlargedImage.onclick = function() {
+                document.body.removeChild(this);
+                enlargedImage = null;
+            };
+            
+            document.body.appendChild(enlargedImage);
+        }
+    </script>
+</body>
+</html>

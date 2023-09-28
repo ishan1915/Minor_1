@@ -30,70 +30,49 @@
 
         <h1>E-commerce Products</h1>
     
-        <!-- Sorting Options -->
-        <label for="sortSelect">Sort by:</label>
-        <select id="sortSelect">
-            <option value="name">Name</option>
-            <option value="price">Price</option>
-            <option value="rating">Rating</option>
-        </select>
-    
-        <!-- Product Display Container -->
-        <div id="productContainer">
-            <!-- Sample Product Listings -->
-            <div class="product" data-name="Product A" data-price="25.99" data-rating="4.5">
-               <img src="img\shopping\image2.jpg" width="200"  length="100">
-                <h4>Product A</h4>
-                <p>Price: $25.99</p>
-                <p>Rating: 4.5 stars</p>
-            </div>
-            <div class="product" data-name="Product B" data-price="19.99" data-rating="3.8">
-                <h4>Product B</h4>
-                <p>Price: $19.99</p>
-                <p>Rating: 3.8 stars</p>
-            </div>
-            <div class="product" data-name="Product C" data-price="34.99" data-rating="4.2">
-                <h4>Product C</h4>
-                <p>Price: $34.99</p>
-                <p>Rating: 4.2 stars</p>
-            </div>
-           <div class="product" data-name="Product A" data-price="25.99" data-rating="4.5">
-                <h4>Product A</h4>
-                <p>Price: $25.99</p>
-                <p>Rating: 4.5 stars</p>
-            </div>
-            <div class="product" data-name="Product B" data-price="19.99" data-rating="3.8">
-                <h4>Product B</h4>
-                <p>Price: $19.99</p>
-                <p>Rating: 3.8 stars</p>
-            </div>
-            <div class="product" data-name="Product C" data-price="34.99" data-rating="4.2">
-                <h4>Product C</h4>
-                <p>Price: $34.99</p>
-                <p>Rating: 4.2 stars</p>
-            </div>
+       <!-- Category Filter Buttons -->
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('electronics')">Electronics</button>
+    <button onclick="filterItems('books')">Books</button>
+    <!-- Add more category buttons as needed -->
+
+    <!-- Item Display Container -->
+    <div id="itemContainer">
+        <!-- Sample Item Listings -->
+        <div class="item" data-category="electronics">
+            
+            <a href="products/product1.html"><img src="img/image2.jpg" width="150"></a>
+            <h4>Smartphone</h4>
+            <p>Category: Electronics</p>
         </div>
-    
-        <script>
-            // JavaScript for sorting products
-            const sortSelect = document.getElementById('sortSelect');
-            const productContainer = document.getElementById('productContainer');
-            const products = Array.from(productContainer.getElementsByClassName('product'));
-    
-            sortSelect.addEventListener('change', function () {
-                const sortBy = this.value;
-    
-                products.sort((a, b) => {
-                    const aValue = parseFloat(a.getAttribute(`data-${sortBy}`));
-                    const bValue = parseFloat(b.getAttribute(`data-${sortBy}`));
-    
-                    return aValue - bValue;
-                });
-    
-                // Clear and re-add sorted products to the container
-                productContainer.innerHTML = '';
-                products.forEach(product => {
-                    productContainer.appendChild(product);
-                });
+        <div class="item" data-category="books">
+            <h4>Science Fiction Book</h4>
+            <p>Category: Books</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <h4>Laptop</h4>
+            <p>Category: Electronics</p>
+        </div>
+        <!-- Add more items with different categories as needed -->
+    </div>
+
+    <script>
+        // JavaScript for filtering items
+        function filterItems(category) {
+            const itemContainer = document.getElementById('itemContainer');
+            const items = Array.from(itemContainer.getElementsByClassName('item'));
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || category === itemCategory) {
+                    item.style.display = 'block'; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
             });
-        </script>
+        }
+    </script>
+</body>
+            
+    
+</html>

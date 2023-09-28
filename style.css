@@ -174,6 +174,15 @@ body {
 #feature.fe-box:nth-child(3) h6{
   background-color: rgb(228, 240, 119);
 }
+
+.newarrivals{
+  background-color: #96b2bd;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  color:crimson
+}
 /*47*/
 
 
@@ -181,13 +190,13 @@ body {
 
 /*product page css starts here*/
   /* Add your CSS styles for product display here */
-  .product {
+  .item {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
    background-color:azure;
 }
-#productContainer{
+#itemContainer{
 
 display: flex;
 
