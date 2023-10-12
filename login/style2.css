@@ -1,0 +1,16 @@
+/*this is for the data.html*/
+
+ul{
+    
+        background: #3399ff;
+        padding: 20px;
+        border: 1px solid #40e00f;
+      }
+
+      ul li {
+        background: #cce5ff;
+        color: darkblue;
+        margin: 5px;
+        padding:8px 16px;
+        border-bottom: 1px solid #36d816;
+      }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication</title>
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<h1 class="h1">Log in Form</h1>
+<!-- Your HTML Form for Authentication -->
+<div class="formm">
+<form id="authForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="signIn()">Sign In</button>
+    <button type="button" onclick="signUp()">Sign Up</button>
+    <button type="button" onclick="signOut()">Sign Out</button>
+</form>
+</div>
+
+<script>
+    // Initialize Firebase with your project config
+      const firebaseConfig = {
+    apiKey: "AIzaSyD2nhdzJ0ziOd9LTv6YYfKAK9GXiOReyBU",
+    authDomain: "contactform-718ea.firebaseapp.com",
+    databaseURL: "https://contactform-718ea-default-rtdb.firebaseio.com",
+    projectId: "contactform-718ea",
+    storageBucket: "contactform-718ea.appspot.com",
+    messagingSenderId: "798549254550",
+    appId: "1:798549254550:web:f31fd0c7d30d101f8f3db7"
+  };
+    firebase.initializeApp(firebaseConfig);
+
+    // Reference to Firebase authentication
+    const auth = firebase.auth();
+
+    // Sign In function
+    function signIn() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                alert(`Signed in as ${user.email}`);
+                // Redirect to a new page (change 'newPage.html' to your desired page)
+                window.location.href = 's.html';
+            })
+            .catch((error) => {
+                alert(`Sign In Error: ${error.message}`);
+            });
+    }
+
+    // Sign Up function
+    function signUp() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed up
+                const user = userCredential.user;
+                alert(`Signed up as ${user.email}`);
+            })
+            .catch((error) => {
+                alert(`Sign Up Error: ${error.message}`);
+            });
+    }
+
+    // Sign Out function
+    function signOut() {
+        auth.signOut()
+            .then(() => {
+                alert('Signed out');
+            })
+            .catch((error) => {
+                alert(`Sign Out Error: ${error.message}`);
+            });
+    }
+</script>
+
+</body>
+</html>
