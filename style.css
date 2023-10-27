@@ -60,7 +60,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px 80px;
-    background: #e3e6f3;
+    background: #b6dbec;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky; /* stick the header on top .not move with scrolling*/
@@ -214,12 +214,23 @@ body {
     padding: 10px;
    }
   .foot3{
-    padding-left: 200px;
+    padding-left: 100px;
     
   }
 /*47*/
 
-
+/*sucess page css*/
+.sucess{
+  padding-bottom: 200px;
+  padding-top: 200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  
+}
+.sucess p{
+  font-size: 30px;
+}
 
 
 /*product page css starts here*/

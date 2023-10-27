@@ -1,6 +1,8 @@
-body {
+ /*this is the css page of the login page*/
+ 
+ body {
     font-family: 'Arial', sans-serif;
-    background-color: #18bce6;
+    background-color:aqua;
     margin: 0;
     padding: 0;
     
@@ -8,22 +10,19 @@ body {
     justify-content: center;
     height: 100vh;
 }
-h3{
+ .h1{
     text-align: center;
-}
-form {
-    max-width: 500px;
-    width: 100%;
-    background-color: #e01886;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.formm{
+    text-decoration-color: #0056b3;
+    font-size: 40px;
+    font-family: "Audiowide", sans-serif;
+ }
+ .formm{
     display: flex;
-    padding-left: 400px;
+    padding-left: 500px;
+    padding-bottom: 200px;
     
  }
+
 label {
     display: block;
     margin-bottom: 8px;
@@ -40,7 +39,7 @@ textarea {
 }
 
 button {
-    background-color: #1a1f25;
+    background-color: #007bff;
     color: #fff;
     padding: 10px;
     border: none;
