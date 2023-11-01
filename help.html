@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="style4.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+<body>
+
+
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo" alt="logo" width="80" height="80"></a>
+<!--Checking  the file-->
+        <div>
+            <ul id="navbar">
+                <li> <a class="active" href="index.html">Home</a></li>
+                <li> <a href="shopping.html">shop</a></li>
+                <li> <a href="">Blog</a></li>
+                <li> <a href="about.html">About</a></li>
+                <li> <a href="help.html">Contact</a></li>
+                <li> <a href="login.html"> Log In</a></li>
+                
+
+            </ul>
+        </div>
+    </section>
+
+
+<div id="formSection">
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="contact">Contact:</label>
+        <input type="tel" id="contact" name="contact" required><br>
+
+        <label for="issue">Select an issue:</label>
+        <select id="issue" name="issue" required>
+            <option value="login">Login Related</option>
+            <option value="itemlisting">Item listing related</option>
+            <option value="others">others</option>
+        </select><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div id="submittedDetails" style="display: none;">
+    <h2>Submitted Details</h2>
+    <p><strong>Name:</strong> <span id="submittedName"></span></p>
+    <p><strong>Email:</strong> <span id="submittedEmail"></span></p>
+    <p><strong>Address:</strong> <span id="submittedAddress"></span></p>
+    <p><strong>Contact:</strong> <span id="submittedContact"></span></p>
+    <p><strong>Selected Issue:</strong> <span id="submittedIssue"></span></p>
+    <p><strong>Description:</strong> <span id="submittedDescription"></span></p>
+</div>
+
+
+
+ 
+   
+<section class="footer"> 
+    <div class="footrow">
+        <div class="foot1">
+          <h3>Contact Us</h3>
+          <address>
+            Jaypee University of Engineering and Technology<br>
+            Guna ,MP ,473226<br>
+            Phone: (123) 456-7890<br>
+            Email: info@example.com
+          </address>
+        </div>
+        <div class="foot2">
+          <h3>Follow Us</h3>
+          <ul class="social-media-icons">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+          </ul>
+        </div>
+        <div class="foot3">
+          <h3>Contact Us</h3>
+          <p>Our Team will Reach You.</p>
+          <form>
+            <input type="email" placeholder="Enter your email"><br>
+            <input type="text" placeholder="Enter your number"><br>
+            <button type="button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+
+
+<!-- Firebase Configuration -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+
+  // Your Firebase configuration
+   const firebaseConfig = {
+    apiKey: "AIzaSyDWnxODCf_KPgbJGU3MIJFaZYW7AR5uP54",
+    authDomain: "help-b7eb1.firebaseapp.com",
+    projectId: "help-b7eb1",
+    storageBucket: "help-b7eb1.appspot.com",
+    messagingSenderId: "1094716073292",
+    appId: "1:1094716073292:web:a5a2ab07cf6c98bd2c5be9"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Reference to the form collection
+  const database = getDatabase(app);
+  const formRef = ref(database, 'contacts');
+
+  // Listen for form submission
+  document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+  // Function to submit the form data to Firebase
+  function submitForm(e) {
+    e.preventDefault();
+
+    var formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      address: document.getElementById('address').value,
+      contact: document.getElementById('contact').value,
+      issue: document.getElementById('issue').value,
+      description: document.getElementById('description').value
+    };
+
+    // Save the form data to Firebase
+    push(formRef, formData);
+
+    // Display submitted details
+    displaySubmittedDetails(formData);
+
+    // Hide the form
+    document.getElementById('formSection').style.display = 'none';
+  }
+
+  // Function to display submitted details
+  function displaySubmittedDetails(data) {
+    document.getElementById('submittedName').textContent = data.name;
+    document.getElementById('submittedEmail').textContent = data.email;
+    document.getElementById('submittedAddress').textContent = data.address;
+    document.getElementById('submittedContact').textContent = data.contact;
+    document.getElementById('submittedIssue').textContent = data.issue;
+    document.getElementById('submittedDescription').textContent = data.description;
+
+    // Show the submitted details section
+    document.getElementById('submittedDetails').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

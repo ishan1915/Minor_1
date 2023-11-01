@@ -38,10 +38,10 @@ h6 {
 }
 
 p {
-  font-size: 20px;
+ /* font-size: 20px;
   /*color: #465b52;*/
   margin: 15px 0 20px 0;
-}
+}*/
 
 .section-p1 {
   padding: 40px 80px;
@@ -301,9 +301,23 @@ h1 {
 
 
 .owner-details {
-  margin-top: 20px;
+  background-color: lightgrey;
+  width: 500px;
+  border: 15px solid green;
+  padding: 50px;
+  margin-left: 400px;
+  
+  font-family: "Audiowide", sans-serif;
+
+}
+.enlarged {
+  width: 500px; /* Adjust the width as needed */ /*enlarged the product images*/
+  height: auto; /* Maintain the aspect ratio */
 }
 
+#hiddenText {
+  display: none;
+ }
 
 .contact-info {
   display: flex;
@@ -323,6 +337,7 @@ h1 {
 .prod2{
   font-size: 30px;
   color: #0056b3;
+  font-family: "Sofia", sans-serif;
 }
 
 
@@ -332,3 +347,13 @@ h1 {
   font-size: 30px;
   text-align: center;
 }
+
+
+/*about page css*/
+#aboutSection{
+   margin-bottom: 100px;
+   padding-bottom: 100px;
+
+}
+
+

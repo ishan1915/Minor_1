@@ -1,0 +1,136 @@
+/*this is the css page for help.html*/
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #202122;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky; /* stick the header on top .not move with scrolling*/
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ebd8d8
+    
+}
+#navbar li a:hover{
+  color: aqua;      /*** change the color of link on clicking**/
+}
+#navbar li a.active{
+  color: aqua;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+  content: "";
+  width:30%;
+  height:2px;
+  background: aqua;
+  position: absolute;
+  bottom: -4px;
+  left:20px
+}
+
+
+
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+#contactForm{
+    padding-left: 500px;
+    padding-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#submittedDetails{
+    text-align: center;
+}
+
+.footrow{
+    display:flex;
+    flex-wrap:wrap;
+   }
+  
+  
+.foot1{
+      padding-left:40px;
+    }
+  
+      
+
+.footer{
+     background-color:black;
+     margin-top: 10px;
+     padding-bottom: 20px;
+     padding-top: 20px;
+     color: white;
+  
+    }
+  
+.foot2 {
+      padding-left: 200px;
+     /* display:flex;*/
+    }
+  
+.social-media-icons li {
+      display: inline-block;
+      padding: 10px;
+     }
+.foot3{
+      padding-left: 100px;
+      
+    }

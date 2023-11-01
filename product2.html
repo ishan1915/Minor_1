@@ -7,6 +7,8 @@
     <title>SHOPPING PAGE</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>Product Details</title>
     
 </head>
@@ -19,8 +21,8 @@
                 <li> <a href="index.html">Home</a></li>
                 <li> <a class="active" href="shopping.html">shop</a></li>
                 <li> <a href="">Blog</a></li>
-                <li> <a href="">About</a></li>
-                <li> <a href="">Contact</a></li>
+                <li> <a href="about.html">About</a></li>
+                <li> <a href="help.html">Contact</a></li>
                 <li> <a href="login.html">Log In</a></li>
                 
 
@@ -30,47 +32,94 @@
 
      
     <div class="container">
-        <div class="product-images">
-            <img src="img/shopping/product2/3.jpeg" alt="Product Image 1" width="100" height="200" onclick="showImage('img/shopping/product2/3.jpeg')">
-            <img src="img/shopping/product2/4.jpeg" alt="Product Image 2" width="100" height="200"  onclick="showImage('img/shopping/product2/4.jpeg')">
-            <img src="img/shopping/product2/2.jpeg" alt="Product Image 3" width="100" height="200"  onclick="showImage('img/shopping/product2/2.jpeg')">
-            <img src="img/shopping/product2/1.jpeg" alt="Product Image 3" width="100" height="200"  onclick="showImage(' img/shopping/product2/1.jpeg')">
-        </div>
+      <div class="product-images">
+        <img src="img/shopping/product2/1.jpeg"  height="100" width="100" alt="Image 1" onclick="toggleImage('image1')" id="image1">
+        <img src="img/shopping/product2/2.jpeg"  height="100" width="100" alt="Image 2" onclick="toggleImage('image2')" id="image2">
+        <img src="img/shopping/product2/3.jpeg"  height="100" width="100" alt="Image 3" onclick="toggleImage('image3')" id="image3">
+        <img src="img/shopping/product2/4.jpeg"  height="100" width="100" alt="Image 4" onclick="toggleImage('image4')" id="image4">
+        <img src="img/shopping/product2/4.jpeg"  height="100" width="100" alt="Image 5" onclick="toggleImage('image5')" id="image5">
+    </div>
+    
         <div class="product-info">
-            <h1>Product Name</h1>
-            <p>Price: $99.99</p>
+            <h1>C++ BOOK</h1>
+            <p>Price: 199.99 INR</p>
         </div>
         <div class="owner-details">
             <p class="prod2">Owner Details</p>
-            <p>Name: John Doe</p>
-            <p>Email: johndoe@example.com</p>
+            <p>Name: Ishan</p>
+            <p>Email: ishan19112000@gmail.com</p>
             <p>Address: 123 Main St, City</p>
+            <button onclick="toggleText()">Descriptions</button>
+             <p id="hiddenText">loremmmmm</p>
         </div>
         <div class="contact-info">
-            <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
-            <a href="mailto:johndoe@example.com">Email</a>
+            <a href="https://wa.me/6299617121" target="_blank">WhatsApp</a>
+            <a href="mailto:ishan19112000@gmail.com">Email</a>
         </div>
     </div>
 
+
+    <!--footer starts here-->
+    <section class="footer"> 
+        <div class="footrow">
+            <div class="foot1">
+              <h3>Contact Us</h3>
+              <address>
+                Jaypee University of Engineering and Technology<br>
+                Guna ,MP ,473226<br>
+                Phone: (123) 456-7890<br>
+                Email: info@example.com
+              </address>
+            </div>
+            <div class="foot2">
+              <h3>Follow Us</h3>
+              <ul class="social-media-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+              </ul>
+            </div>
+            <div class="foot3">
+              <h3>Contact Us</h3>
+              <p>Our Team will Reach You.</p>
+              <form>
+                <input type="email" placeholder="Enter your email"><br>
+                <input type="text" placeholder="Enter your number"><br>
+                <button type="button">Submit</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+
     <script>
-        let enlargedImage = null;
 
-        function showImage(imageSrc) {
-            if (enlargedImage) {
-                document.body.removeChild(enlargedImage);
+        function toggleImage(imageId) {
+            var clickedImage = document.getElementById(imageId);
+        
+            if (clickedImage.classList.contains('enlarged')) {
+              clickedImage.classList.remove('enlarged');
+            } else {
+              // Remove 'enlarged' class from all images
+              var allImages = document.querySelectorAll('img');
+              allImages.forEach(function(image) {
+                image.classList.remove('enlarged');
+              });
+        
+              clickedImage.classList.add('enlarged');
             }
+          }
 
-            enlargedImage = document.createElement("img");
-            enlargedImage.src = imageSrc;
-            enlargedImage.style.maxWidth = "50%";
-            enlargedImage.style.cursor = "pointer";
-            enlargedImage.onclick = function() {
-                document.body.removeChild(this);
-                enlargedImage = null;
-            };
-            
-            document.body.appendChild(enlargedImage);
-        }
+     function toggleText() {
+            var textElement = document.getElementById('hiddenText');
+            if (textElement.style.display === 'none' || textElement.style.display === '') {
+              textElement.style.display = 'block';
+            } else {
+              textElement.style.display = 'none';
+            }
+          } 
+
     </script>
 </body>
 </html>
