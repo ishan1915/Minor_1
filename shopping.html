@@ -8,11 +8,12 @@
         <title>SHOPPING PAGE</title>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     </head>
 
     <body>
         <section id="header">
-            <a href="#"><img src="logo.png" class="logo" alt="logo" width="80" height="80"></a>
+            <a href="index.html"><img src="logo.png" class="logo" alt="logo" width="80" height="80"></a>
 <!--Checking  the file-->
             <div>
                 <ul id="navbar">
@@ -29,11 +30,17 @@
         </section>
 
         <p class="shop1">E-commerce Products</p>
-    
+
+        <div class="search">
+        <input type="text" id="categorySearch" placeholder="Search by category">
+        <button onclick="searchItems()">Search</button>
+        </div>
        <!-- Category Filter Buttons -->
     <button onclick="filterItems('all')">All</button>
     <button onclick="filterItems('electronics')">Electronics</button>
     <button onclick="filterItems('books')">Books</button>
+    <button onclick="filterItems('sports')">Sports</button>
+
     <!-- Add more category buttons as needed -->
 
     <!-- Item Display Container -->
@@ -53,8 +60,16 @@
         </div>
 
         <div class="item" data-category="electronics">
+            <a href="#"><img src="img/shopping/laptop.jpg" width="150" height="200"  ></a>
             <h4>Laptop</h4>
             <p>Category: Electronics</p>
+        </div>
+
+
+        <div class="item" data-category="sports">
+            <a href="#"><img src="img/shopping/football.jpg" width="150" height="200"  ></a>
+            <h4>Football</h4>
+            <p>Category: sports</p>
         </div>
         <!-- Add more items with different categories as needed -->
     </div>
@@ -104,6 +119,24 @@
             items.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
                 if (category === 'all' || category === itemCategory) {
+                    item.style.display = 'block'; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+        }
+
+
+        function searchItems() {
+            const searchTerm = document.getElementById('categorySearch').value.toLowerCase();
+            const itemContainer = document.getElementById('itemContainer');
+            const items = Array.from(itemContainer.getElementsByClassName('item'));
+        
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category').toLowerCase();
+                const itemName = item.querySelector('h4').innerText.toLowerCase();
+        
+                if (itemCategory.includes(searchTerm) || itemName.includes(searchTerm)) {
                     item.style.display = 'block'; // Show item
                 } else {
                     item.style.display = 'none'; // Hide item

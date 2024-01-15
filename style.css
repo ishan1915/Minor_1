@@ -63,7 +63,7 @@ body {
     background: #202122;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
-    position: sticky; /* stick the header on top .not move with scrolling*/
+   /* position: sticky; /* stick the header on top .not move with scrolling*/
     top: 0;
     left: 0;
 }
@@ -347,13 +347,23 @@ h1 {
   font-size: 30px;
   text-align: center;
 }
-
+.search{
+  text-align: center;
+}
 
 /*about page css*/
 #aboutSection{
    margin-bottom: 100px;
    padding-bottom: 100px;
+   margin-top: 20px;
+   padding-top: 20px;
+   margin-left: 10px;
+   padding-left: 10px;
 
 }
-
+.helpeer{
+  font-size: 30px;
+  color: #0056b3;
+  margin-top: 10px;
+}
 

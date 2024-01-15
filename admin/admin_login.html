@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-<h1 class="h1">Log in Form</h1>
+<h1 class="h1">Admin Login</h1>
 <!-- Your HTML Form for Authentication -->
 <div class="formm">
 <form id="authForm">
@@ -23,7 +23,7 @@
 
     <button type="button" onclick="signIn()">Sign In</button>
     <button type="button" onclick="signUp()">Sign Up</button>
-    <button type="button" onclick="signOut()">Sign Out</button>
+    <!--<button type="button" onclick="signOut()">Sign Out</button>-->
 </form>
 </div>
 
@@ -53,7 +53,7 @@
                 const user = userCredential.user;
                 alert(`Signed in as ${user.email}`);
                 // Redirect to a new page (change 'newPage.html' to your desired page)
-                window.location.href = 'index.html';
+                window.location.href = 'admin_panel.html';
             })
             .catch((error) => {
                 alert(`Sign In Error: ${error.message}`);

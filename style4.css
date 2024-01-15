@@ -8,7 +8,7 @@
     background: #202122;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
-    position: sticky; /* stick the header on top .not move with scrolling*/
+   /* position: sticky; /* stick the header on top .not move with scrolling*/
     top: 0;
     left: 0;
 }
@@ -55,7 +55,7 @@
 
 
 form {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -70,6 +70,8 @@ label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+    color:rgb(16, 48, 48);
+    
 }
 
 input,
@@ -133,4 +135,15 @@ button:hover {
 .foot3{
       padding-left: 100px;
       
+    }
+
+    .contct{
+        text-align: center;
+        font-size: 30px;
+        color: #358ff5;
+    }
+
+
+    .footww{
+        background-color: black;
     }

@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Data Fetch</title>
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<!-- Display Fetched Data -->
+<div id="fetchedData">
+    <h2>Fetched Data:</h2>
+    <ul id="dataList"></ul>
+</div>
+
+<script>
+    // Initialize Firebase with your project config
+      const firebaseConfig = {
+    apiKey: "AIzaSyDWnxODCf_KPgbJGU3MIJFaZYW7AR5uP54",
+    authDomain: "help-b7eb1.firebaseapp.com",
+    projectId: "help-b7eb1",
+    storageBucket: "help-b7eb1.appspot.com",
+    messagingSenderId: "1094716073292",
+    appId: "1:1094716073292:web:a5a2ab07cf6c98bd2c5be9"
+  };
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Reference to your Firebase database
+    const database = firebase.database();
+
+    // Fetch and display data
+    const dataList = document.getElementById('dataList');
+    const fetchedDataRef = database.ref('contacts');
+
+    fetchedDataRef.on('value', (snapshot) => {
+        dataList.innerHTML = ''; // Clear previous data
+
+        snapshot.forEach((childSnapshot) => {
+            const data = childSnapshot.val();
+            const listItem = document.createElement('li');
+            listItem.textContent = `Name: ${data.name}, Email: ${data.email}, Contact: ${data.contact}, Address: ${data.address}, Contact: ${data.contact}, Issue: ${data.issue},  Description: ${data.description}`;
+            dataList.appendChild(listItem);
+        });
+    });
+</script>
+
+</body>
+</html
